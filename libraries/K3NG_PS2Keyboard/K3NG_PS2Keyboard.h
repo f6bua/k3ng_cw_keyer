@@ -12,7 +12,7 @@
   - http://radioartisan.wordpress.com
 
   ** Mostly rewritten Paul Stoffregen <paul@pjrc.com>, June 2010
-  ** Modified for use with Arduino 13 by L. Abraham Smith, <n3bah@microcompdesign.com> * 
+  ** Modified for use with Arduino 13 by L. Abraham Smith, <n3bah@microcompdesign.com> *
   ** Modified for easy interrup pin assignement on method begin(datapin,irq_pin). Cuningan <cuninganreset@gmail.com> **
 
   This library is free software; you can redistribute it and/or
@@ -49,9 +49,9 @@ K3NG Updates
 #ifndef K3NG_PS2Keyboard_h
 #define K3NG_PS2Keyboard_h
 
-#define OPTION_PS2_KEYBOARD_US
+//#define OPTION_PS2_KEYBOARD_US
 // #define OPTION_PS2_KEYBOARD_GERMAN
-// #define OPTION_PS2_KEYBOARD_FRENCH
+ #define OPTION_PS2_KEYBOARD_FRENCH
 
 #if !defined(ARDUINO_SAM_DUE) && !defined (__STM32F1__)
   #include <avr/io.h>
@@ -505,19 +505,19 @@ class K3NG_PS2Keyboard {
   	 * method before using any other method of this class.
   	 */
     K3NG_PS2Keyboard();
-    
+
     /**
      * Starts the keyboard "service" by registering the external interrupt.
      * setting the pin modes correctly and driving those needed to high.
      * The propably best place to call this method is in the setup routine.
      */
     static void begin(uint8_t dataPin, uint8_t irq_pin);
-    
+
     /**
      * Returns true if there is a char to be read, false if not.
      */
     static bool available();
-    
+
     /**
      * Returns the char last read from the keyboard.
      * If there is no char availble, -1 is returned.
